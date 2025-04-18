@@ -11,9 +11,13 @@ export async function getProductById(id) {
     console.log(error);
   }
 }
-export async function getProductByName(query) {
+export async function getProductByName(query, currentPage = 1) {
   try {
-    const response = await axios.get(`${BASE_URL}/products/search?q=${query}`);
+    const response = await axios.get(
+      `${BASE_URL}/products/search?q=${query}&limit=12&skip=${
+        (currentPage - 1) * 12
+      }`
+    );
     return response.data;
   } catch (error) {
     console.log(error);
@@ -27,10 +31,12 @@ export async function getAllCategory() {
     console.log(error);
   }
 }
-export async function getProductsByCategory(category) {
+export async function getProductsByCategory(category, currentPage = 1) {
   try {
     const response = await axios.get(
-      `${BASE_URL}/products/category/${category}`
+      `${BASE_URL}/products/category/${category}?limit=12&skip=${
+        (currentPage - 1) * 12
+      }`
     );
     return response.data;
   } catch (error) {
