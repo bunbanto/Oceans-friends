@@ -5,8 +5,10 @@
     <link rel="icon" type="image/svg+xml" href="/Oceans-friends/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home page</title>
-    <script type="module" crossorigin src="/Oceans-friends/assets/styles-BK7AYJoX.js"></script>
-    <link rel="stylesheet" crossorigin href="/Oceans-friends/assets/styles-CwHyMCDG.css">
+    <script type="module" crossorigin src="/Oceans-friends/index.js"></script>
+    <link rel="modulepreload" crossorigin href="/Oceans-friends/assets/styles-C18aTrnn.js">
+    <link rel="modulepreload" crossorigin href="/Oceans-friends/assets/vendor-C19taMLP.js">
+    <link rel="stylesheet" crossorigin href="/Oceans-friends/assets/styles-baXQGHto.css">
   </head>
   <body>
     <header class="header">
@@ -64,6 +66,11 @@
         <div class="container">
           <ul class="categories"></ul>
           <ul class="products"></ul>
+
+          <div class="load-more-btn-wrapper">
+            <button class="load-more-btn">load more</button>
+          </div>
+
           <div class="not-found">
             <div class="not-found__icon">
               <svg
@@ -86,6 +93,9 @@
               We couldn't find any items matching your search.<br />Please try
               different keywords.
             </p>
+          </div>
+          <div class="modal ">
+<div class="modal-product"></div>
           </div>
         </div>
       </section>
