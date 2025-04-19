@@ -1,29 +1,36 @@
 //Робота з loacalStorage
-// export { addDataToLocalStorage, getDataFromLocalStorage };
 
-// const LS_KEY = 'wishlist';
-// function addDataToLocalStorage(arr) {
-//   const normalData = JSON.stringify(arr);
+const LS_KEY = 'wishlist';
 
-//   try {
-//     localStorage.setItem(LS_KEY, normalData);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-// function getDataFromLocalStorage() {
-//   return JSON.parse(localStorage.getItem(LS_KEY)) || [];
-// }
+export function getWishlist() {
+  return JSON.parse(localStorage.getItem(LS_KEY)) || [];
+}
 
-// export function toggleWishlist(id) {
-//   let wishlist = getDataFromLocalStorage();
+export function saveWishlist(arr) {
+  localStorage.setItem(LS_KEY, JSON.stringify(arr));
+}
 
-//   if (wishlist.includes(id)) {
-//     wishlist = wishlist.filter(item => item !== id);
-//   } else {
-//     wishlist.push(id);
-//   }
+export function toggleWishlist(id) {
+  const wishlist = getWishlist();
+  const index = wishlist.indexOf(id);
 
-//   addDataToLocalStorage(wishlist);
-//   updateWishlistCount();
-// }
+  if (index === -1) {
+    wishlist.push(id);
+  } else {
+    wishlist.splice(index, 1);
+  }
+
+  saveWishlist(wishlist);
+  updateWishlistCount();
+}
+
+export function isInWishlist(id) {
+  return getWishlist().includes(id);
+}
+
+export function updateWishlistCount() {
+  const countEl = document.querySelector('.nav__count');
+  if (countEl) {
+    countEl.textContent = getWishlist().length;
+  }
+}

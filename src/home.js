@@ -16,6 +16,7 @@ let currentMode = 'All';
 const productList = document.querySelector('ul.products');
 const CategorieList = document.querySelector('ul.categories');
 const divNotFound = document.querySelector('div.not-found');
+const closeModalBtn = document.querySelector('.modal__close-btn');
 
 // categoryRender
 function categoryRender() {
@@ -134,9 +135,9 @@ async function clickCardFoo(event) {
   }
 }
 
-// Тут вихід з модалки(виходить коли натиснути на модальне вікно або на любий обєкт в ній)
+// Тут вихід з модалки
 
-modal.addEventListener('click', closeModalFoo);
+closeModalBtn.addEventListener('click', closeModalFoo);
 function closeModalFoo() {
   modal.classList.remove('modal--is-open');
 }
@@ -161,10 +162,11 @@ function createMarkupModalProduct({
         <p class="modal-product__shipping-information">Shipping:${shippingInformation}</p>
         <p class="modal-product__return-policy">Return Policy:${returnPolicy}</p>
         <p class="modal-product__price">Price:${price}$</p>
-        <button class="modal-product__buy-btn" type="button">Buy</button>
+        
         </div>
         `;
 }
+
 // form
 const form = document.querySelector('.search-form');
 const inputSearch = form.querySelector('.search-form__input');
