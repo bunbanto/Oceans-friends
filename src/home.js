@@ -118,6 +118,7 @@ productList.addEventListener('click', clickCardFoo);
 
 const modalProductDiv = document.querySelector('.modal-product');
 const modal = modalProductDiv.closest('.modal');
+const modalCloseBtn = modal.querySelector('.modal__close-btn');
 
 async function clickCardFoo(event) {
   const card = event.target.closest('.products__item');
@@ -134,9 +135,9 @@ async function clickCardFoo(event) {
   }
 }
 
-// Тут вихід з модалки(виходить коли натиснути на модальне вікно або на любий обєкт в ній)
+// Тут вихід з модалки
 
-modal.addEventListener('click', closeModalFoo);
+modalCloseBtn.addEventListener('click', closeModalFoo);
 function closeModalFoo() {
   modal.classList.remove('modal--is-open');
 }
@@ -161,10 +162,12 @@ function createMarkupModalProduct({
         <p class="modal-product__shipping-information">Shipping:${shippingInformation}</p>
         <p class="modal-product__return-policy">Return Policy:${returnPolicy}</p>
         <p class="modal-product__price">Price:${price}$</p>
-        <button class="modal-product__buy-btn" type="button">Buy</button>
-        </div>
-        `;
+
+      </div>
+  `;
+
 }
+
 // form
 const form = document.querySelector('.search-form');
 const inputSearch = form.querySelector('.search-form__input');
