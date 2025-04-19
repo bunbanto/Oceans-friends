@@ -152,8 +152,9 @@ function createMarkupModalProduct({
   shippingInformation,
   price,
 }) {
-  return `
+  return ` 
 <img class="modal-product__img" src="${images[0]}" alt="" />
+
       <div class="modal-product__content">
         <p class="modal-product__title">${title}</p>
         <ul class="modal-product__tags">${category}</ul>
@@ -161,8 +162,10 @@ function createMarkupModalProduct({
         <p class="modal-product__shipping-information">Shipping:${shippingInformation}</p>
         <p class="modal-product__return-policy">Return Policy:${returnPolicy}</p>
         <p class="modal-product__price">Price:${price}$</p>
+
       </div>
   `;
+
 }
 
 // form
