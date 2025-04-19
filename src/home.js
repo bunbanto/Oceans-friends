@@ -16,7 +16,7 @@ let currentMode = 'All';
 const productList = document.querySelector('ul.products');
 const CategorieList = document.querySelector('ul.categories');
 const divNotFound = document.querySelector('div.not-found');
-const closeModalBtn = document.querySelector('.modal__close-btn');
+//const modalCloseBtn = document.querySelector('.modal__close-btn');
 
 // categoryRender
 function categoryRender() {
@@ -138,7 +138,7 @@ async function clickCardFoo(event) {
 
 // Тут вихід з модалки
 
-modal.addEventListener('click', closeModalFoo);
+modalCloseBtn.addEventListener('click', closeModalFoo);
 function closeModalFoo() {
   modal.classList.remove('modal--is-open');
 }
