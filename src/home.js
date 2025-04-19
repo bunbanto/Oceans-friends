@@ -119,6 +119,7 @@ productList.addEventListener('click', clickCardFoo);
 
 const modalProductDiv = document.querySelector('.modal-product');
 const modal = modalProductDiv.closest('.modal');
+const modalCloseBtn = modal.querySelector('.modal__close-btn');
 
 async function clickCardFoo(event) {
   const card = event.target.closest('.products__item');
@@ -137,7 +138,7 @@ async function clickCardFoo(event) {
 
 // Тут вихід з модалки
 
-closeModalBtn.addEventListener('click', closeModalFoo);
+modal.addEventListener('click', closeModalFoo);
 function closeModalFoo() {
   modal.classList.remove('modal--is-open');
 }
@@ -162,7 +163,7 @@ function createMarkupModalProduct({
         <p class="modal-product__shipping-information">Shipping:${shippingInformation}</p>
         <p class="modal-product__return-policy">Return Policy:${returnPolicy}</p>
         <p class="modal-product__price">Price:${price}$</p>
-        
+        <button class="modal-product__buy-btn" type="button">Buy</button>
         </div>
         `;
 }
